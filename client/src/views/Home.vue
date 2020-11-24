@@ -27,7 +27,8 @@
       </div>
       <button type="submit" class="btn btn-info">Add message</button>
     </form>
-    <div class="list-unstyled" v-for="message in reversedMsgs" :key="message._id">
+
+    <div class="list-unstyled" @submit="deleteMessage" v-for="message in reversedMsgs" :key="message._id">
       <li class="media">
         <img v-if="message.imgURL" class="mr-3" :src="message.imgURL" :alt="message.subject">
         <div class="media-body">
@@ -35,6 +36,9 @@
           {{message.msg}}
           <br>
           <small>{{message.created}}</small>
+          <br>
+          <br>
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
         </div>
       </li>
       <hr>
